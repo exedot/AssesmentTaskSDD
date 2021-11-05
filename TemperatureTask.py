@@ -1,39 +1,51 @@
 def start():
-    c = 0 ; f = 0
 
+    # Initialises temporary values to "c" and "f"
+    c = float(0) ; f = float(0)
+    skip = False
+    skip2 = False
+
+    # Assigns colour attributes to appropriate variable
     blue = str("\u001b[34;1m")
     red = str("\u001b[31;1m")
     white = str("\u001b[37m")
     yellow = str("\u001b[33;1m")
 
-    # State use cases
+    # States use cases
     print(white + "Press 1 for " + blue + "Celsius" + white + " to " + red + "Farenheit") 
     print(white + "Press 2 for " + red + "Farenheit" + white + " to " + blue + "Celsius")
 
-    moo = int(input(white + "Select mode of operation: ")) # Requests user input
+     # Requests user input
+    try : moo = float(input(white + "Select mode of operation: ")) 
+    except : skip = True, print("fuck you")
+    
+    if skip == False:
 
-    # Once checked and validatated user selection, requests temperature value
-    if moo == 1 : c = int(input("Input" + blue + " Celsius " + white + "temperature value: "))
-    elif moo == 2 : f = int(input("Input" + red + " Farenheit " + white + "temperature value: "))
-    else: print(white + "Invalid selection, please make a note of it")
+        # Once checked and validatated user selection, requests temperature value
+        try:
+            if moo == 1 : c = float(input("Input" + blue + " Celsius " + white + "temperature value: "))
+            elif moo == 2 : f = float(input("Input" + red + " Farenheit " + white + "temperature value: "))
+            else : print(white + "Invalid selection, please make a note of it")
+        except: skip2 = True, print("fuck you")
 
-    # Conversion equations, Celsius to Farenheit and vice versa
-    c2f = ((c * 9/5) + 32) ; f2c = ((f - 32) * 5/9)
+        if skip2 == False:
+            # Conversion equations, Celsius to Farenheit and vice versa
+            c2f = ((c * 9/5) + 32) ; f2c = ((f - 32) * 5/9)
 
-    # Converts values from type float to string
-    farval = str(c2f)
-    celval = str(f2c)
+            # Converts values from type float to string
+            farval = str(c2f) ; celval = str(f2c)
+            
+            # Converts original values
+            fs = str(f) ; cs = str(c)
+            
+            
+            # Processes value through selected equation, breaking upon completion or detection of invalidity
+            while moo != 1 or moo !=2:
 
-    fs = str(f)
-    cs = str(c)
-
-    # Processes value through selected equation, breaking upon completion or detection of invalidity
-    while moo != 1 or moo !=2:
-
-        if moo == 1 : print(blue + cs + "°C" + white + " equates to " + red + farval + "°F")
-        elif moo == 2 : print(red + fs + "°F" + white + " equates to " + blue + celval + "°C")
-        else : print(white + "HAHAHAHAHAHAHAHAHAHA YOU FUUUCKEDDD UPPPP BIATCH, get dunked on virgin")
-        break
+                if moo == 1 : print(blue + cs + "°C" + white + " equates to " + red + farval + "°F")
+                elif moo == 2 : print(red + fs + "°F" + white + " equates to " + blue + celval + "°C")
+                else : print(white + "HAHAHAHAHAHAHAHAHAHA YOU FUUUCKEDDD UPPPP BIATCH, get dunked on virgin")
+                break
 
     # Requests reversion
     yn = int(input(white + "Revert program? 1 yes, 2 no: "))
