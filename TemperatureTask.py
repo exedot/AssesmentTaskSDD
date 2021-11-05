@@ -2,8 +2,7 @@ def start():
 
     # Initialises temporary values to "c" and "f"
     c = float(0) ; f = float(0)
-    skip = False
-    skip2 = False
+    skip = False ; skip2 = False
 
     # Assigns colour attributes to appropriate variable
     blue = str("\u001b[34;1m")
@@ -17,7 +16,7 @@ def start():
 
      # Requests user input
     try : moo = float(input(white + "Select mode of operation: ")) 
-    except : skip = True, print("fuck you")
+    except : skip = True, print("Entry of alphabetic characters crashes the program")
     
     if skip == False:
 
@@ -26,7 +25,7 @@ def start():
             if moo == 1 : c = float(input("Input" + blue + " Celsius " + white + "temperature value: "))
             elif moo == 2 : f = float(input("Input" + red + " Farenheit " + white + "temperature value: "))
             else : print(white + "Invalid selection, please make a note of it")
-        except: skip2 = True, print("fuck you")
+        except: skip2 = True, print("Entry of alphabetic characters crashes the program")
 
         if skip2 == False:
             # Conversion equations, Celsius to Farenheit and vice versa
@@ -38,7 +37,7 @@ def start():
             # Converts original values
             fs = str(f) ; cs = str(c)
             
-            
+
             # Processes value through selected equation, breaking upon completion or detection of invalidity
             while moo != 1 or moo !=2:
 
@@ -48,7 +47,7 @@ def start():
                 break
 
     # Requests reversion
-    yn = int(input(white + "Revert program? 1 yes, 2 no: "))
+    yn = int(input(white + "Revert program? 1 Yes, 2 No: "))
     if yn == 1 : start() # If user selects option 1 the program reverts to start function
     elif yn == 2 : print(yellow + "Shutting down..." + white), exit() # If option 2 was selected, the program terminates
     else : print("Invalid selection, " + yellow + "shutting down..." + white), exit() # If otherwise program is terminateds
