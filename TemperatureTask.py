@@ -16,7 +16,7 @@ def start():
 
      # Requests user input
     try : moo = float(input(white + "Select mode of operation: ")) 
-    except : skip = True, print("Entry of alphabetic characters crashes the program")
+    except : skip = True, print("*Entry of alphabetic characters crashes the program, you are rushed to the local Pokemon Centre*")
     
     if skip == False:
 
@@ -25,7 +25,7 @@ def start():
             if moo == 1 : c = float(input("Input" + blue + " Celsius " + white + "temperature value: "))
             elif moo == 2 : f = float(input("Input" + red + " Farenheit " + white + "temperature value: "))
             else : print(white + "Invalid selection, please make a note of it")
-        except: skip2 = True, print("Entry of alphabetic characters crashes the program")
+        except: skip2 = True, print("*Entry of alphabetic characters crashes the program, you are rushed to the local Pokemon Centre*")
 
         if skip2 == False:
             # Conversion equations, Celsius to Farenheit and vice versa
@@ -50,7 +50,7 @@ def start():
     yn = int(input(white + "Revert program? 1 Yes, 2 No: "))
     if yn == 1 : start() # If user selects option 1 the program reverts to start function
     elif yn == 2 : print(yellow + "Shutting down..." + white), exit() # If option 2 was selected, the program terminates
-    else : print("Invalid selection, " + yellow + "shutting down..." + white), exit() # If otherwise program is terminateds
+    else : print("Invalid selection, " + yellow + "shutting down..." + white), exit() # If otherwise program is terminated
 
 # Starts prog yo
 start()
