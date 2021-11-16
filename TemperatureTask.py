@@ -30,18 +30,13 @@ def start():
         if skip2 == False:
             # Conversion equations, Celsius to Farenheit and vice versa
             c2f = ((c * 9/5) + 32) ; f2c = ((f - 32) * 5/9)
-
             # Converts values from type float to string
             farval = str(c2f) ; celval = str(f2c)
-            
             # Converts original values
             fs = str(f) ; cs = str(c)
-            
-
             # Processes value through selected equation, breaking upon completion or detection of invalidity
             while moo != 1 or moo !=2:
-
-                if moo == 1 : print(blue + cs + "°C" + white + " equates to " + red + farval + "°F")
+                if moo == 1 : print(blue + cs + "°C" + white + " equates to " + red + farval + "°F") # Strings patchwork phrase
                 elif moo == 2 : print(red + fs + "°F" + white + " equates to " + blue + celval + "°C")
                 else : print(white + "HAHAHAHAHAHAHAHAHAHA YOU FUUUCKEDDD UPPPP BIATCH, get dunked on virgin")
                 break
@@ -51,8 +46,5 @@ def start():
     if yn == 1 : start() # If user selects option 1 the program reverts to start function
     elif yn == 2 : print(yellow + "Shutting down..." + white), exit() # If option 2 was selected, the program terminates
     else : print("Invalid selection, " + yellow + "shutting down..." + white), exit() # If otherwise program is terminated
-
 # Starts prog yo
 start()
-
-
