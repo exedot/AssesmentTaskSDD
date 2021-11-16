@@ -27,11 +27,16 @@ def start():
     "        \::/    /                \::/    /                \::/    /                \::/    /                \::/    /                \:|   |                                                        \n"
     "         \/____/                  \/____/                  \/____/                  \/____/                  \/____/                  \|___|                                                        \n"
     "                                                                                                                                                                                                    ")
-    print("Hail unto Caesar, lowly Plebeian, what business have you with our system of encryption. Regardless, here it is, now, what is to be codified")
+    print("Hail unto Caesar, lowly Plebeian, what business have you with our system of encryption. Regardless, here it is, now, what is to be codified?")
     i = input("Typus in sententia ut encoded: ")
     # Input is then translated using our pre-established rot13 variable
     print(i.translate(rot13))
+    print("The above text has been encoded. Now go away.")
 
+    print("Do you wish to create a .txt for your translation? (press 1/0)")
+    with open('CAESAR.txt', 'w') as f:
+        f.write(i.translate(rot13))
+    
     # Attempts reversion
     yn = int(input(white + "Revert program? 1 Yes, 2 No: "))
     if yn == 1 : start() # If user selects option 1 the program reverts to start function
