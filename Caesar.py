@@ -1,10 +1,11 @@
 def start():
     white = str("\u001b[37m")
     yellow = str("\u001b[33;1m")
+    red = str("\u001b[31;1m")
     # The maketrans() method returns a translation table that maps each character in the first(intab) string into the character at the same position in the last(outtab) string.
     rot13 = str.maketrans('ABCDEFGHIJKLMabcdefghijklmNOPQRSTUVWXYZnopqrstuvwxyz','NOPQRSTUVWXYZnopqrstuvwxyzABCDEFGHIJKLMabcdefghijklm')
     # User's input is provided before encoding begins
-    print("          _____                    _____                    _____                    _____                    _____                    _____                    _____                _____    \n"      
+    print(red + "          _____                    _____                    _____                    _____                    _____                    _____                    _____                _____    \n"      
     "         /\    \                  /\    \                  /\    \                  /\    \                  /\    \                  /\    \                  /\    \              |\    \         \n"
     "        /::\    \                /::\    \                /::\    \                /::\    \                /::\    \                /::\    \                /::\    \             |:\____\        \n"
     "       /::::\    \              /::::\    \              /::::\    \              /::::\    \              /::::\    \              /::::\    \              /::::\    \            |::|   |        \n"
@@ -25,20 +26,21 @@ def start():
     "       \:::\____\                /:::/    /              \:::\____\               \::::/    /               /:::/    /              \::|   |                                                        \n"
     "        \::/    /                \::/    /                \::/    /                \::/    /                \::/    /                \:|   |                                                        \n"
     "         \/____/                  \/____/                  \/____/                  \/____/                  \/____/                  \|___|                                                        \n"
-    "                                                                                                                                                                                                    ")
-    print("Hail unto Caesar, lowly Plebeian, what business have you with our system of encryption. Regardless, here it is, now, what is to be codified?")
+    "                                                                                                                                                                                                    " + white)
+    print("Hail unto Caesar. Lowly Plebeian, What is to be codified?")
     i = input("Typus in sententia ut encoded: ")
     # Input is then translated using our pre-established rot13 variable
-    print(i.translate(rot13))
-    print("The above text has been encoded. Now go away.")
+    print(yellow + i.translate(rot13) + white)
+    print("The above text has been encoded. Above can be decoded through the provided program")
 
-    c = int(input("Do you wish to store as a .txt file? (press 1 for yes): "))
-    if c == 1:
+    c = str(input("Do you wish to store as a .txt file? (y/n): "))
+    if c == "y":
         with open('CAESAR.txt', 'w') as f:
             f.write(i.translate(rot13))
             print("File stored in root program directory.")
     else:
         print("As you wish.")
+    
     
     # Attempts reversion
     yn = int(input(white + "Revert program? 1 Yes, 2 No: "))
