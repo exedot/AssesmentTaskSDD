@@ -2,7 +2,7 @@ def start():
     white = str("\u001b[37m")
     yellow = str("\u001b[33;1m")
     # The maketrans() method returns a translation table that maps each character in the first(intab) string into the character at the same position in the last(outtab) string.
-    rot13 = str.maketrans('ABCDEFGHIJKLMabcdefghijklmNOPQRSTUVWXYZnopqrstuvwxyz','NOPQRSTUVWXYZnopqrstuvwxyzABCDEFGHIJKLMabcdefghijklm')
+    rot13 = str.maketrans('NOPQRSTUVWXYZnopqrstuvwxyzABCDEFGHIJKLMabcdefghijklm', 'ABCDEFGHIJKLMabcdefghijklmNOPQRSTUVWXYZnopqrstuvwxyz')
     # User's input is provided before encoding begins
     print("          _____                    _____                    _____                    _____                    _____                    _____                    _____                _____    \n"      
     "         /\    \                  /\    \                  /\    \                  /\    \                  /\    \                  /\    \                  /\    \              |\    \         \n"
@@ -26,23 +26,22 @@ def start():
     "        \::/    /                \::/    /                \::/    /                \::/    /                \::/    /                \:|   |                                                        \n"
     "         \/____/                  \/____/                  \/____/                  \/____/                  \/____/                  \|___|                                                        \n"
     "                                                                                                                                                                                                    ")
-    print("Hail unto Caesar, lowly Plebeian, what business have you with our system of encryption. Regardless, here it is, now, what is to be codified?")
-    i = input("Typus in sententia ut encoded: ")
+    print("Welcome to the decryption program, provided for your convenience")
+    i = input("Encrypted text goes here: ")
     # Input is then translated using our pre-established rot13 variable
-    print(i.translate(rot13))
-    print("The above text has been encoded. Now go away.")
+    print(yellow + i.translate(rot13) + white)
+    print("The above text has been decoded. Thank you for using Stop 'N' Drop, America's favourite suicide booth since 2008.")
 
     c = int(input("Do you wish to store as a .txt file? (press 1 for yes): "))
     if c == 1:
-        with open('CAESAR.txt', 'w') as f:
+        with open('CAESAR_decoded.txt', 'w') as f:
             f.write(i.translate(rot13))
             print("File stored in root program directory.")
     else:
         print("As you wish.")
     
-    # Attempts reversion
     yn = int(input(white + "Revert program? 1 Yes, 2 No: "))
-    if yn == 1 : start() # If user selects option 1 the program reverts to start function
-    elif yn == 2 : print(yellow + "Shutting down..." + white), exit() # If option 2 was selected, the program terminates
-    else : print("Invalid selection, " + yellow + "shutting down..." + white), exit() # If otherwise program is terminated
+    if yn == 1 : start()
+    elif yn == 2 : print(yellow + "Shutting down..." + white), exit()
+    else : print("Invalid selection, " + yellow + "shutting down..." + white), exit()
 start()
