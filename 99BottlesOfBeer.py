@@ -2,7 +2,7 @@ def start():
     # Creates variable to hold value
     n = int(99)
     # Starts For loop, giving max and min value necessary to process
-    for n in range(99,-1):
+    for n in range(99,-1, -1):
         if n>2:
             # Initiates maximum number of beer to be taken down(99) until reaching 2
             print(str(n) + " bottles of beer on the wall,")
