@@ -1,36 +1,36 @@
 def start():
     import random
 
-    # Assigns die to variables "a" & "b"
-    a = random.randint(1,6)
-    b = random.randint(1,6)
+    # Assigns die to variables "rolla" & "rollb"
+    rolla = random.randint(1,6)
+    rollb = random.randint(1,6)
 
     # Tells program which ASCII to embed
     def aroll():
-            if a == 1:
+            if rolla == 1:
                 print(a1)
-            elif a == 2:
+            elif rolla == 2:
                 print(a2)
-            elif a == 3:
+            elif rolla == 3:
                 print(a3)
-            elif a == 4:
+            elif rolla == 4:
                 print(a4)
-            elif a == 5:
+            elif rolla == 5:
                 print(a5)
-            elif a == 6:
+            elif rolla == 6:
                 print(a6)
     def broll():
-            if b == 1:
+            if rollb == 1:
                 print(a1)
-            elif b == 2:
+            elif rollb == 2:
                 print(a2)
-            elif b == 3:
+            elif rollb == 3:
                 print(a3)
-            elif b == 4:
+            elif rollb == 4:
                 print(a4)
-            elif b == 5:
+            elif rollb == 5:
                 print(a5)
-            elif b == 6:
+            elif rollb == 6:
                 print(a6)
 
     # Colour scheme
@@ -40,7 +40,7 @@ def start():
     skip = False
 
     # Accepts user input
-    try : dn = int(input(":flushed:, h-hey, w-welcome to Dice Emporium, p-please press 1 or 2 for the desired amount of d-dice uwu: "))
+    try : dicenum = int(input(":flushed:, h-hey, w-welcome to Dice Emporium, p-please press 1 or 2 for the desired amount of d-dice uwu: "))
     except : skip = True, print("*Entry of alphabetic characters crashes the program, you are rushed to the local Pokemon Centre*")
 
     # Defines ASCII artwork for graphical use
@@ -54,17 +54,17 @@ def start():
     # For in case of alphabetic character entry, averts crashes
     if skip == False:
         # User's selection of either 1 or 2 dice decides which function runs
-        if dn == 1:
+        if dicenum == 1:
             aroll()
-        elif dn == 2:
+        elif dicenum == 2:
             aroll()
             broll()
             # Makes a string of the product of the two values rolled
-            apb = str(a + b)
-            print("The total value of your roll is " + apb)
+            aplusb = str(rolla + rollb)
+            print("The total value of your roll is " + aplusb)
         else : print("Invalid selection, please make a note of it")
 
-    try: # Attempts reversion request
+    try: # reversion request
         yn = int(input(white + "Revert program? 1 Yes, 2 No: ")) # Creates yes/no instance
         if yn == 1 : start() # If user selects option 1 the program reverts to start function
         elif yn == 2 : print(yellow + "Shutting down..." + white), exit() # If option 2 was selected, the program terminates

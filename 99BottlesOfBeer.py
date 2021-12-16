@@ -1,26 +1,26 @@
 def start():
     # Creates variable to hold value
-    n = int(99)
+    bottles = int(99)
     # Starts For loop, giving max and min value necessary to process
-    for n in range(99,-1, -1):
-        if n>2:
+    for bottles in range(99,-1, -1):
+        if bottles>2:
             # Initiates maximum number of beer to be taken down(99) until reaching 2
-            print(str(n) + " bottles of beer on the wall,")
-            print(str(n) + " bottles of beer.")
+            print(str(bottles) + " bottles of beer on the wall,")
+            print(str(bottles) + " bottles of beer.")
             print("Take one down, pass it around,")
-            print(str(n-1) +" bottles of beer on the wall.")
+            print(str(bottles-1) +" bottles of beer on the wall.")
             print("")
-        elif n==2:
+        elif bottles==2:
             # Once reaching 2, an alternate version is constructed to retain grammatical consistency between bottles/bottle
-            print(str(n) +" bottles of beer on the wall,")
-            print(str(n) +" bottles of beer.")
+            print(str(bottles) +" bottles of beer on the wall,")
+            print(str(bottles) +" bottles of beer.")
             print("Take one down, pass it around,")
-            print(str(n-1) +" bottle of beer on the wall.")
+            print(str(bottles-1) +" bottle of beer on the wall.")
             print(str(""))
-        elif n==1:
+        elif bottles==1:
             # Same is done here for no. 1
-            print(str(n) +" bottle of beer on the wall,")
-            print(str(n) +" bottle of beer.")
+            print(str(bottles) +" bottle of beer on the wall,")
+            print(str(bottles) +" bottle of beer.")
             print("Take one down, pass it around,")
             print("no more bottles of beer on the wall.")
             print("")
